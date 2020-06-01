@@ -11,7 +11,6 @@ def vigenere(plaintext, key):
     key = key.upper()
     shift_values = []
     ciphertext = []
-    print(alphabet)
     for letter in key:                              # create key values
         position_in_list = alphabet.index(letter)
         shift_values.append(position_in_list)
@@ -31,5 +30,25 @@ def vigenere(plaintext, key):
     return ciphertext
 
 
-print(vigenere('THEY DRINK THE TEA', 'DUH'))
+def decrypt(ciphertext, key):
+    alphabet = list(string.ascii_uppercase)
+    shift_values = []
+    plaintext = []
 
+    for letter in key:
+        position_in_list = alphabet.index(letter)
+        shift_values.append(position_in_list)
+    index_pos = 0
+    for letter in ciphertext:
+        if index_pos >= 3:
+            index_pos = 0
+        position_in_list = alphabet.index(letter)
+        new_letter = position_in_list - shift_values[0 + index_pos]
+        plaintext.append(alphabet[new_letter % len(alphabet)])
+        index_pos += 1
+    return plaintext
+
+
+output = vigenere('THEY DRINK THE TEA', 'DUH')
+print(output)
+print(decrypt(output, 'DUH'))
