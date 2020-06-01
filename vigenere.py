@@ -44,7 +44,7 @@ def decrypt(ciphertext, key):
             index_pos = 0
         position_in_list = alphabet.index(letter)
         new_letter = position_in_list - shift_values[0 + index_pos]
-        plaintext.append(alphabet[new_letter % len(alphabet)])
+        plaintext.append(alphabet[new_letter % len(alphabet)])  # use modulus to wrap around list
         index_pos += 1
     return plaintext
 
