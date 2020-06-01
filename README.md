@@ -1,2 +1,6 @@
-# vigenere-py
-super shit implementation of vigenere in python. It breaks on some values.
+# crypto-things-in-py
+Some crypto ciphers in py  
+Currently includes: 
+
+Vigenère
+Caesar
